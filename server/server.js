@@ -18,7 +18,18 @@ app.post('/api/automate', async (req, res) => {
   }
 
   try {
-    const prompt = `You are a business automation expert. A user described a messy manual workflow. Turn it into a clean step-by-step automation plan. Workflow: "${workflow}". Respond with: 1. A short summary (1 sentence) 2. Step-by-step automation plan (max 6 steps) 3. Tools that could automate this`;
+    const prompt = `You are a business automation expert. 
+A user described this workflow: "${workflow}"
+
+Respond in EXACTLY this format with no extra text:
+1. [Trigger step - how the workflow starts]
+2. [Second step of the automation]
+3. [Third step of the automation]
+4. [Fourth step of the automation]
+5. [Fifth step of the automation]
+6. [Final output or result]
+
+Each line must start with a number and period. Keep each step under 15 words. No bold, no headers, just the 6 numbered lines.`;
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
