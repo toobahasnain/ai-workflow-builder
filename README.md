@@ -1,5 +1,5 @@
 # AI Workflow Builder
-
+![AI Workflow Builder](screenshot.png)
 An AI-powered web application that transforms messy manual business workflows into clean, structured automation plans instantly.
 
 ## Live Demo
