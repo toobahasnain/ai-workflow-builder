@@ -3,24 +3,26 @@
 An AI-powered web application that transforms messy manual business workflows into clean, structured automation plans instantly.
 
 ## Live Demo
-> Run locally following the setup instructions below.
+👉 **[Try it live here](https://ai-workflow-builder-q87o.vercel.app)**
 
 ## Screenshot
 ![AI Workflow Builder](screenshot.png)
 
 ## What it does
-Paste a description of any manual business process and the app generates:
-- A clear summary of the workflow
-- A step-by-step automation plan
-- Tool recommendations (Zapier, Make, Power Automate, etc.)
+- Describe any manual business workflow in plain text
+- AI generates a visual step-by-step automation plan
+- Color-coded nodes: Trigger → Actions → Output
+- Add custom nodes from the sidebar
+- Edit any node directly on the canvas
+- Drag and reposition nodes freely
 
 ## Tech Stack
-- **Frontend:** React, Axios, CSS3
-- **Backend:** Node.js, Express
+- **Frontend:** React, React Flow, Axios, CSS3
+- **Backend:** Node.js, Express, REST API
 - **AI:** Google Gemini API
-- **Other:** REST API, CORS, dotenv
+- **Deployed:** Vercel (frontend) + Render (backend)
 
-## Getting Started
+## Getting Started locally
 
 ### Prerequisites
 - Node.js installed
@@ -52,3 +54,4 @@ npm start
 ## Author
 Syeda Tooba Hasnain
 - LinkedIn: https://www.linkedin.com/in/syeda-tooba-hasnain-a9a17119a/
+- GitHub: https://github.com/toobahasnain
