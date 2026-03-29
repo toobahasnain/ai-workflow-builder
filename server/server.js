@@ -7,7 +7,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://ai-workflow-builder-toobahasnains-projects.vercel.app',
+    /\.vercel\.app$/
+  ]
+}));
 app.use(express.json());
 
 app.post('/api/automate', async (req, res) => {
