@@ -54,16 +54,20 @@ function CustomNode({ data }) {
         }}>
           {colors.label}
         </span>
-        <span style={{
-          marginLeft: 'auto',
-          fontSize: '10px',
-          color: '#555577',
-          cursor: 'pointer'
-        }}
-          onClick={() => setEditing(true)}
-        >
-          ✏️
-        </span>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: '6px' }}>
+  <span
+    style={{ fontSize: '10px', color: '#555577', cursor: 'pointer' }}
+    onClick={() => setEditing(true)}
+  >
+    ✏️
+  </span>
+  <span
+    style={{ fontSize: '10px', color: '#f97316', cursor: 'pointer' }}
+    onClick={() => data.onDelete && data.onDelete()}
+  >
+    🗑️
+  </span>
+</div>
       </div>
 
       {editing ? (

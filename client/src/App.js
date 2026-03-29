@@ -44,11 +44,12 @@ const addNode = useCallback((type) => {
     type: 'custom',
     position: { x: 300 + Math.random() * 200, y: 200 + Math.random() * 200 },
     data: {
-      label: type === 'trigger' ? 'New trigger — click to edit' :
-             type === 'action' ? 'New action step' : 'New output result',
-      type,
-      step: nodeId
-    }
+  label: type === 'trigger' ? 'New trigger — click to edit' :
+         type === 'action' ? 'New action step' : 'New output result',
+  type,
+  step: nodeId,
+  onDelete: () => setNodes((nds) => nds.filter((n) => n.id !== id))
+}
   };
   setNodes((nds) => [...nds, newNode]);
   setNodeId((id) => id + 1);
@@ -76,10 +77,11 @@ const addNode = useCallback((type) => {
         type: 'custom',
         position: { x: 100 + (index % 2) * 320, y: 100 + Math.floor(index / 2) * 180 },
         data: {
-          label: line.replace(/^\d+\.\s*\*?\*?/, '').replace(/\*\*/g, '').trim(),
-          type: index === 0 ? 'trigger' : index === lines.length - 1 ? 'output' : 'action',
-          step: index + 1
-        }
+  label: line.replace(/^\d+\.\s*\*?\*?/, '').replace(/\*\*/g, '').trim(),
+  type: index === 0 ? 'trigger' : index === lines.length - 1 ? 'output' : 'action',
+  step: index + 1,
+  onDelete: () => setNodes((nds) => nds.filter((n) => n.id !== `step-${index + 1}`))
+}
       }));
 
       const newEdges = newNodes.slice(0, -1).map((node, index) => ({
