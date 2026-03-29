@@ -68,6 +68,8 @@ const addNode = useCallback((type) => {
     setError('');
 
     try {
+      setNodes([]);
+setEdges([]);
       const response = await axios.post('https://ai-workflow-builder-api.onrender.com/api/automate', { workflow });
       const text = response.data.result;
       const lines = text.split('\n').filter(l => l.trim() && l.match(/^\d+\./));
